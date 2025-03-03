@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "958917211661",
+    "project_id": "consulto-3bd7b",
+    "storage_bucket": "consulto-3bd7b.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:958917211661:android:d80231a64b5898d3a74744",
+        "android_client_info": {
+          "package_name": "com.example.consulto"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDSSLEpeB4lPLDKg3c9PDgQ2qE94YecHBg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
