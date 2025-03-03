@@ -9,9 +9,10 @@ class FirebaseAuthService {
         email: email,
         password: password,
       );
+      print("✅ User signed up: ${userCredential.user?.email}");
       return userCredential.user;
     } catch (e) {
-      print("Error in signUp: $e");
+      print("❌ Error in signUp: $e");
       return null;
     }
   }
@@ -22,16 +23,20 @@ class FirebaseAuthService {
         email: email,
         password: password,
       );
+      print("✅ User signed in: ${userCredential.user?.email}");
       return userCredential.user;
     } catch (e) {
-      print("Error in signIn: $e");
+      print("❌ Error in signIn: $e");
       return null;
     }
   }
 
   Future<void> signOut() async {
     await _auth.signOut();
+    print("✅ User signed out");
   }
 
-  Stream<User?> get userStream => _auth.authStateChanges();
+  Stream<User?> get userStream {
+    return _auth.authStateChanges();
+  }
 }
