@@ -1,7 +1,7 @@
 import 'package:consulto/data/data_sources/auth_services.dart';
 import 'package:consulto/data/repositories/auth_repo_impl.dart';
 import 'package:consulto/domain/repositories/auth_repositories.dart';
-import 'package:consulto/presentation/cubit/auth_cubit/cubit/auth_cubit.dart';
+import 'package:consulto/presentation/cubit/auth_cubit/auth_cubit.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -21,7 +21,7 @@ void main() async {
 
 class MyApp extends StatelessWidget {
   final AuthRepository authRepository;
-  MyApp({required this.authRepository});
+  const MyApp({super.key, required this.authRepository});
 
   @override
   Widget build(BuildContext context) {

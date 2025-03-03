@@ -1,10 +1,12 @@
-import 'package:consulto/presentation/cubit/auth_cubit/cubit/auth_cubit.dart';
+import 'package:consulto/presentation/cubit/auth_cubit/auth_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class LoginScreen extends StatelessWidget {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
+
+  LoginScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
