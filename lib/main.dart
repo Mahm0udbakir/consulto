@@ -1,13 +1,13 @@
-import 'package:consulto/data/data_sources/auth_services.dart';
-import 'package:consulto/data/repositories/auth_repo_impl.dart';
-import 'package:consulto/domain/repositories/auth_repositories.dart';
-import 'package:consulto/presentation/cubit/auth_cubit/auth_cubit.dart';
+import 'package:consulto/features/auth/data/data_sources/auth_services.dart';
+import 'package:consulto/features/auth/data/repositories/auth_repo_impl.dart';
+import 'package:consulto/features/auth/domain/repositories/auth_repositories.dart';
+import 'package:consulto/features/auth/presentation/cubit/auth_cubit/auth_cubit.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'domain/usecases/auth_usecases.dart';
-import 'presentation/screens/auth/login_screen.dart';
+import 'features/auth/domain/usecases/auth_usecases.dart';
+import 'features/auth/presentation/screens/auth/login_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

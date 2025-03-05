@@ -1,5 +1,5 @@
-import 'package:consulto/data/data_sources/auth_services.dart';
-import 'package:consulto/domain/repositories/auth_repositories.dart';
+import 'package:consulto/features/auth/data/data_sources/auth_services.dart';
+import 'package:consulto/features/auth/domain/repositories/auth_repositories.dart';
 import 'package:firebase_auth/firebase_auth.dart';
   
 class AuthRepositoryImpl implements AuthRepository {

@@ -1,4 +1,4 @@
-import 'package:consulto/presentation/cubit/auth_cubit/auth_cubit.dart';
+import 'package:consulto/features/auth/presentation/cubit/auth_cubit/auth_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 

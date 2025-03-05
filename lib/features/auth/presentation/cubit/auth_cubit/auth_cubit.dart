@@ -1,5 +1,5 @@
 import 'package:bloc/bloc.dart';
-import 'package:consulto/domain/usecases/auth_usecases.dart';
+import 'package:consulto/features/auth/domain/usecases/auth_usecases.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class AuthCubit extends Cubit<User?> {

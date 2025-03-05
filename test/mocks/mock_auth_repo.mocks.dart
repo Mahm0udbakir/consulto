@@ -5,7 +5,7 @@
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'dart:async' as _i3;
 
-import 'package:consulto/domain/repositories/auth_repositories.dart' as _i2;
+import 'package:consulto/features/auth/domain/repositories/auth_repositories.dart' as _i2;
 import 'package:firebase_auth/firebase_auth.dart' as _i4;
 import 'package:mockito/mockito.dart' as _i1;
 
