@@ -3,39 +3,41 @@ import 'package:consulto/features/auth/domain/repositories/auth_repositories.dar
 import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
+/// 🔹 **Sign In**
 class SignIn {
   final AuthRepository repository;
   SignIn(this.repository);
 
-  Future<Either<Failure, User?>> call(String email, String password) {
-    return repository.signIn(email, password);
+  Future<Either<Failure, User?>> call(String email, String password) async {
+    return await repository.signIn(email, password);
   }
 }
 
-class SignOut {
-  final FirebaseAuth auth;
-
-  SignOut(this.auth);
-
-  Future<Either<Failure, void>> call() async {
-    try {
-      await auth.signOut();
-      return const Right(null); // Ensure it returns Right(null) instead of void
-    } catch (e) {
-      return Left(Failure(e.toString())); // Return Left on failure
-    }
-  }
-}
-
+/// 🔹 **Sign Up**
 class SignUp {
   final AuthRepository repository;
   SignUp(this.repository);
 
-  Future<Either<Failure, User?>> call(String email, String password) {
-    return repository.signUp(email, password);
+  Future<Either<Failure, User?>> call(String email, String password) async {
+    return await repository.signUp(email, password);
   }
 }
 
+class SignOut {
+  final AuthRepository repository;
+  SignOut(this.repository);
+
+  Future<Either<Failure, Unit>> call() async {
+    try {
+      await repository.signOut();
+      return right(unit); // ✅ Return Unit instead of void
+    } catch (e) {
+      return left(Failure(e.toString())); // Return Failure on error
+    }
+  }
+}
+
+/// 🔹 **Get User Stream**
 class GetUserStream {
   final AuthRepository repository;
   GetUserStream(this.repository);

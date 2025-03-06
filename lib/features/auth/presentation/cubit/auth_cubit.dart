@@ -72,20 +72,20 @@ class AuthCubit extends Cubit<AuthState> {
     );
   }
 
-Future<void> signOut() async {
-  emit(SignOutLoading()); // Emit loading state
+  Future<void> signOut() async {
+    emit(SignOutLoading()); // Emit loading state
 
-  final Either<Failure, void> result = await signOutUseCase();  // Ensure it returns Either<Failure, void>
+    final Either<Failure, Unit> result = await signOutUseCase();  // ✅ Use Unit instead of void
 
-  result.fold(
-    (failure) {
-      print("❌ Sign-out failed: ${failure.toString()}");
-      emit(SignOutFailure(failure.toString())); // Emit failure state
-    },
-    (_) {
-      print("✅ Signed out successfully");
-      emit(SignOutSuccess()); // Emit success state
-    },
-  );
-}
+    result.fold(
+      (failure) {
+        print("❌ Sign-out failed: ${failure.toString()}");
+        emit(SignOutFailure(failure.toString())); // Emit failure state
+      },
+      (_) {
+        print("✅ Signed out successfully");
+        emit(SignOutSuccess()); // Emit success state
+      },
+    );
+  }
 }
