@@ -1,15 +1,17 @@
-import 'package:data_connection_checker_tv/data_connection_checker.dart';
+import 'package:connectivity_plus/connectivity_plus.dart';
 
-abstract class NetworkInfo{
+abstract class NetworkInfo {
   Future<bool> get isConnected;
 }
 
 class NetworkInfoImpl implements NetworkInfo {
-  final DataConnectionChecker connectionChecker;
+  final Connectivity connectivity;
 
-  NetworkInfoImpl(this.connectionChecker);
-  
+  NetworkInfoImpl(this.connectivity);
+
   @override
-  Future<bool> get isConnected => connectionChecker.hasConnection;
-
-} 
+  Future<bool> get isConnected async {
+    var connectivityResult = await connectivity.checkConnectivity();
+    return connectivityResult != ConnectivityResult.none;
+  }
+}

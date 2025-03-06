@@ -7,6 +7,11 @@ abstract class ServerException implements Exception {
   const ServerException(this.errorModel);
 }
 
+class CacheException implements Exception {
+  final String errorMessage;
+  CacheException({required this.errorMessage});
+}
+
 /// Specific exceptions for different error cases
 class ForbiddenException extends ServerException {
   const ForbiddenException(super.errorModel);
