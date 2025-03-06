@@ -1,4 +1,5 @@
 import 'package:connectivity_plus/connectivity_plus.dart';
+import 'package:consulto/core/routes/router_generator.dart';
 import 'package:consulto/features/auth/data/data_sources/firebase_auth_service.dart';
 import 'package:consulto/features/auth/data/repositories/auth_repo_impl.dart';
 import 'package:consulto/features/auth/domain/repositories/auth_repositories.dart';
@@ -9,7 +10,6 @@ import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'features/auth/presentation/screens/auth/sign_in_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -44,9 +44,9 @@ class MyApp extends StatelessWidget {
         signOutUseCase: SignOut(authRepository),
         userStreamUseCase: GetUserStream(authRepository),
       ),
-      child: MaterialApp(
+      child: MaterialApp.router(
         debugShowCheckedModeBanner: false,
-        home: SignInScreen(),
+        routerConfig: router,
       ),
     );
   }
