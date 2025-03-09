@@ -1,6 +1,6 @@
  class AppRoutes {
   static const String home = '/home';
-  static const String downloads = '/downloads';
-  static const String saved = '/saved';
-  static const String settings = '/settings';
+  static const String downloads = '/contactUs';
+  static const String saved = '/deptPlanning';
+  static const String settings = '/investement';
 }
