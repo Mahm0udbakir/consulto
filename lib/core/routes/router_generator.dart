@@ -1,5 +1,8 @@
-import 'package:consulto/features/auth%20copy/presentation/screens/auth/sign_up_screen.dart';
 import 'package:consulto/features/auth/presentation/screens/sign_in_screen.dart';
+import 'package:consulto/features/auth/presentation/screens/sign_up_screen.dart';
+import 'package:consulto/features/home/presentation/screens/contactUsScreen.dart';
+import 'package:consulto/features/home/presentation/screens/debtPlanningScreen.dart';
+import 'package:consulto/features/home/presentation/screens/investementScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'app_routes.dart';

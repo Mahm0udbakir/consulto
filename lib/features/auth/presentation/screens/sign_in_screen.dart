@@ -1,4 +1,3 @@
-import 'package:consulto/features/auth/presentation/screens/sign_up_screen.dart';
 import 'package:flutter/material.dart';
 
 class SignInScreen extends StatelessWidget {

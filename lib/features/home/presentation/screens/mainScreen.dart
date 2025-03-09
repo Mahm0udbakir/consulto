@@ -1,4 +1,6 @@
-import 'package:consulto/features/auth%20copy/presentation/screens/auth/sign_up_screen.dart';
+import 'package:consulto/features/home/presentation/screens/aboutUsScreen.dart';
+import 'package:consulto/features/home/presentation/screens/homeScreen.dart';
+import 'package:consulto/features/home/presentation/screens/profileScreen.dart';
 import 'package:flutter/material.dart';
 
 class MainScreen extends StatefulWidget {
@@ -11,8 +13,8 @@ class _MainScreenState extends State<MainScreen> {
 
   final List<Widget> _pages = [
     HomeScreen(), // Home page
-    ProfileScreen(), // Profile page
-    AboutUsScreen(), // About Us page
+    const ProfileScreen(), // Profile page
+    const AboutUsScreen(), // About Us page
   ];
 
   void _onItemTapped(int index) {
