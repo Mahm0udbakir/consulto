@@ -1,6 +1,5 @@
 import 'package:consulto/core/database/api/api_consumer.dart';
 
-import '../models/template_model.dart';
 
 class TemplateRemoteDataSource {
   final ApiConsumer api;

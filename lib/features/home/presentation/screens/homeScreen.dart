@@ -31,27 +31,21 @@ class HomeScreen extends StatelessWidget {
       ),
     );
   }
-
-  Widget _buildHomeButton(
-      IconData icon, String text, BuildContext context, Widget page) {
-    return SizedBox(
-      width: double.infinity,
-      height: 60,
-      child: ElevatedButton.icon(
-        icon: Icon(icon, size: 30),
-        label: Text(text, style: const TextStyle(fontSize: 20)),
-        style: ElevatedButton.styleFrom(
-          backgroundColor: Colors.green,
-          foregroundColor: Colors.white,
-        ),
-        onPressed: () {
-          Navigator.push(
-              context, MaterialPageRoute(builder: (context) => page));
-        },
-      ),
-    );
-  }
 }
 
-
-
+Widget _buildHomeButton(
+    IconData icon, String text, BuildContext context, Widget page) {
+  return SizedBox(
+    width: double.infinity,
+    height: 60,
+    child: ElevatedButton.icon(
+      icon: Icon(icon, size: 30),
+      label: Text(text, style: const TextStyle(fontSize: 20)),
+      style: ElevatedButton.styleFrom(
+          backgroundColor: Colors.green, foregroundColor: Colors.white),
+      onPressed: () {
+        Navigator.push(context, MaterialPageRoute(builder: (context) => page));
+      },
+    ),
+  );
+}

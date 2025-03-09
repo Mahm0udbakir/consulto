@@ -37,6 +37,9 @@ class _MainScreenState extends State<MainScreen> {
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _selectedIndex,
         onTap: _onItemTapped,
+        backgroundColor: Colors.green, // ✅ Set green background
+        selectedItemColor: Colors.white, // ✅ White color for selected item
+        unselectedItemColor: Colors.black54, // ✅ Dark gray for unselected items
         items: const [
           BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
           BottomNavigationBarItem(icon: Icon(Icons.person), label: "Profile"),
