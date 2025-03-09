@@ -1,185 +1,143 @@
 import 'package:flutter/material.dart';
 
-Widget _buildCertificateDetail(
-    String title,
-    String interestRate,
-    String returnType,
-    String duration,
-    String payoutFrequency,
-    String currency,
-    String minDeposit) {
-  return Card(
-    margin: const EdgeInsets.symmetric(vertical: 8),
-    child: Padding(
-      padding: const EdgeInsets.all(12),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(title,
-              style:
-                  const TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
-          const SizedBox(height: 5),
-          Text("Interest Rate: $interestRate",
-              style: const TextStyle(fontSize: 16, color: Colors.black54)),
-          Text("Type of Return: $returnType",
-              style: const TextStyle(fontSize: 16, color: Colors.black54)),
-          Text("Duration: $duration",
-              style: const TextStyle(fontSize: 16, color: Colors.black54)),
-          Text("Payout Frequency: $payoutFrequency",
-              style: const TextStyle(fontSize: 16, color: Colors.black54)),
-          Text("Currency: $currency",
-              style: const TextStyle(fontSize: 16, color: Colors.black54)),
-          Text("Minimum Deposit: $minDeposit",
-              style: const TextStyle(fontSize: 16, color: Colors.black54)),
-        ],
-      ),
-    ),
-  );
-}
-
-
-// -------------------- National Bank of Egypt Loan Details --------------------
-
-class NationalBankofEgyptScreen extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: _buildAppBar("National Bank of Egypt Loans"),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              _buildLoanDetail(
-                  "Loan for Egyptians working abroad ",
-                  "Interest Rate: Up to 15%",
-                  "Loan Duration: Up to 4 years"
-                      "Guarantees: by salary transfer "
-                      "Loan amount: 50,000 to 3,000,000 pounds"
-                      "Funding type: Employees"),
-              _buildLoanDetail(
-                  "Private sector employee loan",
-                  "Interest Rate: 23.5%",
-                  "Loan Duration: Up to 10 years"
-                      "Guarantees: by salary transfer"
-                      "Loan amount: Up to 2,000,000 pounds"
-                      "Funding type:Private sector"),
-              _buildLoanDetail(
-                  "Employee loan",
-                  "Interest Rate: 23.75% to 24%",
-                  "Loan Duration: Up to 12 years"
-                      "Guarantees: by salary transfer"
-                      "Loan amount: up to 3,000,000 pounds"
-                      "Funding type: Employees"),
-              _buildLoanDetail(
-                  "Dept repayment",
-                  "Interest Rate: 16%",
-                  "Loan Duration: Up to 8 years"
-                      "Guarantees: by salary transfer"
-                      "Loan amount: up to 2,000,000 pounds"
-                      "Funding type: Dept repayment"),
-              _buildLoanDetail(
-                  "Loan secured by certificates",
-                  "Interest Rate: 2% %to 3.5% + Certificate price ",
-                  "Loan Duration: 1.5 to 10 years"
-                      "Guarantees: Savings pot"
-                      "Loan amount: up to 90% of the Certificate value "
-                      "Funding type: Secured Loans"),
-              _buildLoanDetail(
-                  "Bank Employee Loan",
-                  "Interest Rate: 19.5%",
-                  "Loan Duration: 7 to 10 years"
-                      "Guarantees: Without conversion"
-                      "Loan amount: up to 700,000 pounds"
-                      "Funding type: Bankers"),
-              _buildLoanDetail(
-                  "Bank Employee Loan",
-                  "Interest Rate: 18.5%",
-                  "Loan Duration: Up to 7 years"
-                      "Guarantees: Without conversion"
-                      "Loan amount: up to 1,500,000 pounds"
-                      "Funding type: Bankers"),
-              _buildLoanDetail(
-                  "Pensioners loan ",
-                  "Interest Rate: 21.5%",
-                  "Loan Duration: Up to 10 years"
-                      "Guarantees:by salary transfer "
-                      "Loan amount: up to 1,000,000 pounds"
-                      "Funding type: Pensioners"),
-              _buildLoanDetail(
-                  "Employee Loan ",
-                  "Interest Rate: 24% to 25.6%",
-                  "Loan Duration: 1 to 4 years"
-                      "Guarantees:Without conversion "
-                      "Loan amount: up to 700,000 pounds"
-                      "Funding type:Employees"),
-              _buildLoanDetail(
-                  "Oil and Gas Sector Employee Loan  ",
-                  "Interest Rate: 21%",
-                  "Loan Duration: Up to 10 years"
-                      "Guarantees:by salary transfer "
-                      "Loan amount: up to 2,000,000 pounds"
-                      "Funding type:Employees"),
-              _buildLoanDetail(
-                  "Doctors loan ",
-                  "Interest Rate: 20%",
-                  "Loan Duration: Up to 7 years"
-                      "Guarantees: Without conversion "
-                      "Loan amount: up to 1,000,000 pounds"
-                      "Funding type: Doctors"),
-              _buildLoanDetail(
-                  "Self-employed loan  ",
-                  "Interest Rate: 26.5% ",
-                  "Loan Duration: Up to 7 years"
-                      "Guarantees:By salary transfer "
-                      "Loan amount: up to 1,500,000 pounds"
-                      "Funding type: Free professions"),
-              _buildLoanDetail(
-                  "Car loan for self-employed ",
-                  "Program type: The car is private"
-                      "Car type: New "
-                      "Interest Rate:32% to 32.5% ",
-                  "Loan Duration: Up to 7 years"
-                      "Guarantees: Without conversion "
-                      "Financing value:20,000 to 3,000,000 pounds "
-                      "Down payment: 0%"),
-              _buildLoanDetail(
-                  "Chinese car loan ",
-                  "Program type: The car is private"
-                      "Car type: New"
-                      "Interest Rate: 32% to 32.5%  ",
-                  "Loan Duration: 1 to 4 years"
-                      "Guarantees:Without conversion "
-                      "Financing value:20,000 to 1,000,000 pounds   "
-                      "Down payment: 50%"),
-              _buildLoanDetail(
-                  "Car loan ",
-                  "Program type: The car is private"
-                      "Car type: New"
-                      "Interest Rate: 32% to 32.5% ",
-                  "Loan Duration: Up to 7 years"
-                      "Guarantees:Without conversion "
-                      "Financing value: 20,000 to 1,000,000 "
-                      "Down payment: 0%"),
-              _buildLoanDetail(
-                  "Car loan ",
-                  "Program type: The car is private"
-                      "Car type: New"
-                      "Interest Rate: 32% to 32.5% ",
-                  "Loan Duration: Up to 7 years"
-                      "Guarantees: by salary transfer "
-                      "Financing value: 20,000 to 1,000,000 "
-                      "Down payment: 0%"),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-// -------------------- Banque Misr Loan Details --------------------
+// class NationalBankofEgyptScreen extends StatelessWidget {
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       appBar: _buildAppBar("National Bank of Egypt Loans"),
+//       body: Padding(
+//         padding: const EdgeInsets.all(16.0),
+//         child: SingleChildScrollView(
+//           child: Column(
+//             crossAxisAlignment: CrossAxisAlignment.start,
+//             children: [
+//               _buildLoanDetail(
+//                   "Loan for Egyptians working abroad ",
+//                   "Interest Rate: Up to 15%",
+//                   "Loan Duration: Up to 4 years"
+//                       "Guarantees: by salary transfer "
+//                       "Loan amount: 50,000 to 3,000,000 pounds"
+//                       "Funding type: Employees"),
+//               _buildLoanDetail(
+//                   "Private sector employee loan",
+//                   "Interest Rate: 23.5%",
+//                   "Loan Duration: Up to 10 years"
+//                       "Guarantees: by salary transfer"
+//                       "Loan amount: Up to 2,000,000 pounds"
+//                       "Funding type:Private sector"),
+//               _buildLoanDetail(
+//                   "Employee loan",
+//                   "Interest Rate: 23.75% to 24%",
+//                   "Loan Duration: Up to 12 years"
+//                       "Guarantees: by salary transfer"
+//                       "Loan amount: up to 3,000,000 pounds"
+//                       "Funding type: Employees"),
+//               _buildLoanDetail(
+//                   "Dept repayment",
+//                   "Interest Rate: 16%",
+//                   "Loan Duration: Up to 8 years"
+//                       "Guarantees: by salary transfer"
+//                       "Loan amount: up to 2,000,000 pounds"
+//                       "Funding type: Dept repayment"),
+//               _buildLoanDetail(
+//                   "Loan secured by certificates",
+//                   "Interest Rate: 2% %to 3.5% + Certificate price ",
+//                   "Loan Duration: 1.5 to 10 years"
+//                       "Guarantees: Savings pot"
+//                       "Loan amount: up to 90% of the Certificate value "
+//                       "Funding type: Secured Loans"),
+//               _buildLoanDetail(
+//                   "Bank Employee Loan",
+//                   "Interest Rate: 19.5%",
+//                   "Loan Duration: 7 to 10 years"
+//                       "Guarantees: Without conversion"
+//                       "Loan amount: up to 700,000 pounds"
+//                       "Funding type: Bankers"),
+//               _buildLoanDetail(
+//                   "Bank Employee Loan",
+//                   "Interest Rate: 18.5%",
+//                   "Loan Duration: Up to 7 years"
+//                       "Guarantees: Without conversion"
+//                       "Loan amount: up to 1,500,000 pounds"
+//                       "Funding type: Bankers"),
+//               _buildLoanDetail(
+//                   "Pensioners loan ",
+//                   "Interest Rate: 21.5%",
+//                   "Loan Duration: Up to 10 years"
+//                       "Guarantees:by salary transfer "
+//                       "Loan amount: up to 1,000,000 pounds"
+//                       "Funding type: Pensioners"),
+//               _buildLoanDetail(
+//                   "Employee Loan ",
+//                   "Interest Rate: 24% to 25.6%",
+//                   "Loan Duration: 1 to 4 years"
+//                       "Guarantees:Without conversion "
+//                       "Loan amount: up to 700,000 pounds"
+//                       "Funding type:Employees"),
+//               _buildLoanDetail(
+//                   "Oil and Gas Sector Employee Loan  ",
+//                   "Interest Rate: 21%",
+//                   "Loan Duration: Up to 10 years"
+//                       "Guarantees:by salary transfer "
+//                       "Loan amount: up to 2,000,000 pounds"
+//                       "Funding type:Employees"),
+//               _buildLoanDetail(
+//                   "Doctors loan ",
+//                   "Interest Rate: 20%",
+//                   "Loan Duration: Up to 7 years"
+//                       "Guarantees: Without conversion "
+//                       "Loan amount: up to 1,000,000 pounds"
+//                       "Funding type: Doctors"),
+//               _buildLoanDetail(
+//                   "Self-employed loan  ",
+//                   "Interest Rate: 26.5% ",
+//                   "Loan Duration: Up to 7 years"
+//                       "Guarantees:By salary transfer "
+//                       "Loan amount: up to 1,500,000 pounds"
+//                       "Funding type: Free professions"),
+//               _buildLoanDetail(
+//                   "Car loan for self-employed ",
+//                   "Program type: The car is private"
+//                       "Car type: New "
+//                       "Interest Rate:32% to 32.5% ",
+//                   "Loan Duration: Up to 7 years"
+//                       "Guarantees: Without conversion "
+//                       "Financing value:20,000 to 3,000,000 pounds "
+//                       "Down payment: 0%"),
+//               _buildLoanDetail(
+//                   "Chinese car loan ",
+//                   "Program type: The car is private"
+//                       "Car type: New"
+//                       "Interest Rate: 32% to 32.5%  ",
+//                   "Loan Duration: 1 to 4 years"
+//                       "Guarantees:Without conversion "
+//                       "Financing value:20,000 to 1,000,000 pounds   "
+//                       "Down payment: 50%"),
+//               _buildLoanDetail(
+//                   "Car loan ",
+//                   "Program type: The car is private"
+//                       "Car type: New"
+//                       "Interest Rate: 32% to 32.5% ",
+//                   "Loan Duration: Up to 7 years"
+//                       "Guarantees:Without conversion "
+//                       "Financing value: 20,000 to 1,000,000 "
+//                       "Down payment: 0%"),
+//               _buildLoanDetail(
+//                   "Car loan ",
+//                   "Program type: The car is private"
+//                       "Car type: New"
+//                       "Interest Rate: 32% to 32.5% ",
+//                   "Loan Duration: Up to 7 years"
+//                       "Guarantees: by salary transfer "
+//                       "Financing value: 20,000 to 1,000,000 "
+//                       "Down payment: 0%"),
+//             ],
+//           ),
+//         ),
+//       ),
+//     );
+//   }
+// }
 
 // class BanqueMisrScreen extends StatelessWidget {
 //   @override
@@ -617,9 +575,46 @@ Widget _buildBankButton(String bankName,
       onPressed: () {
         if (context != null && page != null) {
           Navigator.push(
-              context, MaterialPageRoute(builder: (context) => page!));
+              context, MaterialPageRoute(builder: (context) => page));
         }
       },
+    ),
+  );
+}
+
+Widget _buildCertificateDetail(
+    String title,
+    String interestRate,
+    String returnType,
+    String duration,
+    String payoutFrequency,
+    String currency,
+    String minDeposit) {
+  return Card(
+    margin: const EdgeInsets.symmetric(vertical: 8),
+    child: Padding(
+      padding: const EdgeInsets.all(12),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(title,
+              style:
+                  const TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+          const SizedBox(height: 5),
+          Text("Interest Rate: $interestRate",
+              style: const TextStyle(fontSize: 16, color: Colors.black54)),
+          Text("Type of Return: $returnType",
+              style: const TextStyle(fontSize: 16, color: Colors.black54)),
+          Text("Duration: $duration",
+              style: const TextStyle(fontSize: 16, color: Colors.black54)),
+          Text("Payout Frequency: $payoutFrequency",
+              style: const TextStyle(fontSize: 16, color: Colors.black54)),
+          Text("Currency: $currency",
+              style: const TextStyle(fontSize: 16, color: Colors.black54)),
+          Text("Minimum Deposit: $minDeposit",
+              style: const TextStyle(fontSize: 16, color: Colors.black54)),
+        ],
+      ),
     ),
   );
 }
@@ -644,49 +639,4 @@ Widget _buildLoanDetail(String title, String interest, String duration) {
       ),
     ),
   );
-}
-
-// -------------------- About Us --------------------
-
-class AboutUsScreen extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: _buildAppBar("About Us"),
-      body: const Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: const Center(
-          child: const Text(
-            "We are a team of students from Future University in Egypt.\n"
-            "Our mission is to provide smart financial consulting through our app.",
-            textAlign: TextAlign.center,
-            style: const TextStyle(fontSize: 16),
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-// -------------------- Profile --------------------
-
-class ProfileScreen extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: _buildAppBar("Profile"),
-      body: const Center(
-        child: Text("User Profile Page", style: TextStyle(fontSize: 18)),
-      ),
-    );
-  }
-}
-
-// -------------------- Placeholder Pages --------------------
-
-class ContactUsScreen extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(appBar: _buildAppBar("Contact Us"));
-  }
 }

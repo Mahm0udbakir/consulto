@@ -1,7 +1,7 @@
-import 'package:consulto/features/auth/presentation/screens/latest.dart';
 import 'package:consulto/features/home/presentation/screens/banks/arabAfricanBank.dart';
 import 'package:consulto/features/home/presentation/screens/banks/banqueMisr.dart';
 import 'package:consulto/features/home/presentation/screens/banks/commercialBank.dart';
+import 'package:consulto/features/home/presentation/screens/banks/nationalBank.dart';
 import 'package:consulto/features/home/presentation/screens/banks/qatarBank.dart';
 import 'package:flutter/material.dart';
 
@@ -16,7 +16,7 @@ class DebtPlanningScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             _buildBankButton(
-                "National Bank of Egypt", context, NationalBankofEgyptScreen()),
+                "National Bank of Egypt", context, NationalBankInvestmentScreen()),
             const SizedBox(height: 16),
             _buildBankButton("Banque Misr", context, BanqueMisrInvestmentScreen()),
             const SizedBox(height: 16),
