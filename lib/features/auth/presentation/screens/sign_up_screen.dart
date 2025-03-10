@@ -1,23 +1,23 @@
-import 'package:consulto/features/auth/presentation/screens/sign_in_screen.dart';
-import 'package:flutter/material.dart';
+// import 'package:consulto/features/auth/presentation/screens/sign_in_screen.dart';
+// import 'package:flutter/material.dart';
 
-void main() {
-  runApp(SmartConsultApp());
-}
+// void main() {
+//   runApp(SmartConsultApp());
+// }
 
-class SmartConsultApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Smart Consult',
-      theme: ThemeData(
-        primarySwatch: Colors.green,
-      ),
-      home: SignInScreen(),
-    );
-  }
-}
+// class SmartConsultApp extends StatelessWidget {
+//   @override
+//   Widget build(BuildContext context) {
+//     return MaterialApp(
+//       debugShowCheckedModeBanner: false,
+//       title: 'Smart Consult',
+//       theme: ThemeData(
+//         primarySwatch: Colors.green,
+//       ),
+//       home: SignInScreen(),
+//     );
+//   }
+// }
 
 // class LoginPage extends StatelessWidget {
 //   const LoginPage({super.key});

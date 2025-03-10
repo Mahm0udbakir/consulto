@@ -14,23 +14,16 @@ class _MainScreenState extends State<MainScreen> {
 
   final List<Widget> _pages = [
     HomeScreen(), // Home page
-     ChatBotScreen(), // Home page
+    ChatBotScreen(), // Home page
     const ProfileScreen(), // Profile page
     const AboutUsScreen(), // About Us page
   ];
 
-  void _onItemTapped(int index) {
-    if (index == 3) {
-      // Logout logic (back to home)
-      setState(() {
-        _selectedIndex = 0;
-      });
-    } else {
-      setState(() {
-        _selectedIndex = index;
-      });
-    }
-  }
+void _onItemTapped(int index) {
+  setState(() {
+    _selectedIndex = index;
+  });
+}
 
   @override
   Widget build(BuildContext context) {
@@ -46,7 +39,6 @@ class _MainScreenState extends State<MainScreen> {
           BottomNavigationBarItem(icon: Icon(Icons.chat), label: "Bot"),
           BottomNavigationBarItem(icon: Icon(Icons.person), label: "Profile"),
           BottomNavigationBarItem(icon: Icon(Icons.info), label: "About Us"),
-          BottomNavigationBarItem(icon: Icon(Icons.logout), label: "Logout"),
         ],
       ),
     );

@@ -5,9 +5,31 @@ class ChatBotScreen extends StatefulWidget {
   _ChatBotScreenState createState() => _ChatBotScreenState();
 }
 
-class _ChatBotScreenState extends State<ChatBotScreen> {
+class _ChatBotScreenState extends State<ChatBotScreen> with SingleTickerProviderStateMixin {
   final TextEditingController _controller = TextEditingController();
   final List<Map<String, String>> _messages = [];
+  late AnimationController _fadeController;
+  late Animation<double> _fadeAnimation;
+
+  @override
+  void initState() {
+    super.initState();
+    _fadeController = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 800),
+    )..forward();
+
+    _fadeAnimation = CurvedAnimation(
+      parent: _fadeController,
+      curve: Curves.easeIn,
+    );
+  }
+
+  @override
+  void dispose() {
+    _fadeController.dispose();
+    super.dispose();
+  }
 
   void _sendMessage() {
     if (_controller.text.isEmpty) return;
@@ -19,7 +41,7 @@ class _ChatBotScreenState extends State<ChatBotScreen> {
     String userMessage = _controller.text.toLowerCase();
     _controller.clear();
 
-    Future.delayed(Duration(milliseconds: 500), () {
+    Future.delayed(const Duration(milliseconds: 500), () {
       _addBotResponse(userMessage);
     });
   }
@@ -53,58 +75,80 @@ class _ChatBotScreenState extends State<ChatBotScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Financial Assistant"),
+        title: const Text("Financial Assistant"),
         backgroundColor: Colors.green,
+        centerTitle: true,
       ),
-      body: Column(
-        children: [
-          Expanded(
-            child: ListView.builder(
-              padding: EdgeInsets.all(10),
-              itemCount: _messages.length,
-              itemBuilder: (context, index) {
-                bool isUser = _messages[index]["sender"] == "user";
-                return Align(
-                  alignment: isUser ? Alignment.centerRight : Alignment.centerLeft,
-                  child: Container(
-                    margin: EdgeInsets.symmetric(vertical: 5),
-                    padding: EdgeInsets.all(12),
-                    decoration: BoxDecoration(
-                      color: isUser ? Colors.green : Colors.grey[300],
-                      borderRadius: BorderRadius.circular(12),
+      body: FadeTransition(
+        opacity: _fadeAnimation,
+        child: Column(
+          children: [
+            Expanded(
+              child: ListView.builder(
+                padding: const EdgeInsets.all(10),
+                itemCount: _messages.length,
+                itemBuilder: (context, index) {
+                  bool isUser = _messages[index]["sender"] == "user";
+                  return Align(
+                    alignment: isUser ? Alignment.centerRight : Alignment.centerLeft,
+                    child: AnimatedOpacity(
+                      duration: const Duration(milliseconds: 500),
+                      opacity: 1.0,
+                      child: Container(
+                        margin: const EdgeInsets.symmetric(vertical: 5),
+                        padding: const EdgeInsets.all(12),
+                        constraints: BoxConstraints(
+                          maxWidth: MediaQuery.of(context).size.width * 0.75,
+                        ),
+                        decoration: BoxDecoration(
+                          color: isUser ? Colors.green : Colors.grey[300],
+                          borderRadius: BorderRadius.circular(16),
+                        ),
+                        child: Text(
+                          _messages[index]["message"]!,
+                          style: TextStyle(color: isUser ? Colors.white : Colors.black),
+                        ),
+                      ),
                     ),
-                    child: Text(
-                      _messages[index]["message"]!,
-                      style: TextStyle(color: isUser ? Colors.white : Colors.black),
-                    ),
-                  ),
-                );
-              },
+                  );
+                },
+              ),
             ),
-          ),
-          Padding(
-            padding: EdgeInsets.all(10),
-            child: Row(
-              children: [
-                Expanded(
-                  child: TextField(
-                    controller: _controller,
-                    decoration: InputDecoration(
-                      hintText: "Ask about budgeting, saving, investing...",
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10),
+            Padding(
+              padding: const EdgeInsets.all(10),
+              child: Row(
+                children: [
+                  Expanded(
+                    child: TextField(
+                      controller: _controller,
+                      decoration: InputDecoration(
+                        hintText: "Ask about budgeting, saving, investing...",
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10),
+                        ),
                       ),
                     ),
                   ),
-                ),
-                IconButton(
-                  icon: Icon(Icons.send, color: Colors.green),
-                  onPressed: _sendMessage,
-                ),
-              ],
+                  TweenAnimationBuilder(
+                    duration: const Duration(milliseconds: 200),
+                    tween: Tween<double>(begin: 1, end: 1.1),
+                    curve: Curves.easeInOut,
+                    builder: (context, double scale, child) {
+                      return Transform.scale(
+                        scale: scale,
+                        child: child,
+                      );
+                    },
+                    child: IconButton(
+                      icon: const Icon(Icons.send, color: Colors.green),
+                      onPressed: _sendMessage,
+                    ),
+                  ),
+                ],
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

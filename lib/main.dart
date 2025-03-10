@@ -1,5 +1,6 @@
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:consulto/core/routes/router_generator.dart';
+import 'package:consulto/core/service_locator.dart';
 import 'package:consulto/features/auth/data/data_sources/firebase_auth_service.dart';
 import 'package:consulto/features/auth/data/repositories/auth_repo_impl.dart';
 import 'package:consulto/features/auth/domain/repositories/auth_repositories.dart';
@@ -27,6 +28,7 @@ void main() async {
   final firebaseAuthService = FirebaseAuthService();
   final networkInfo = NetworkInfoImpl(Connectivity());
   final authRepository = AuthRepositoryImpl(firebaseAuthService, networkInfo);
+  setupServiceLocator(); // 👈 Ensure services are registered before running the app
 
   runApp(MyApp(authRepository: authRepository));
 }
